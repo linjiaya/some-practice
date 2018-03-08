@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>排序</title>
+</head>
+<body>
+  <script>
+    function Sort(arr){
+     var len = arr.length;
+     for (var i = 0; i < len; i++) {
+      for (var j = 0; j < len - 1 - i; j++) {
+        if (arr[j] > arr[j+1]) {        //相邻元素两两对比
+            var temp = arr[j+1];        //元素交换
+            arr[j+1] = arr[j];
+            arr[j] = temp;
+          }
+        }
+      }
+      return arr;
+    }
+    document.write(Sort([5, 100, 6, 3, -12])+'<br>');
+
+    function toRGB(color){
+      if((/^#[0-9a-zA-Z]{6}$/).exec(color)){
+        var r = color.substr(1,2);
+        var g = color.substr(3,2);
+        var b = color.substr(5,2);
+        r = parseInt('0x'+r);
+        g = parseInt('0x'+g);
+        b = parseInt('0x'+b);
+        return ([r,g,b])
+      }
+    }
+    document.write('('+toRGB('#00FF00')+')<br>')
+  </script>
+</body>
+</html>

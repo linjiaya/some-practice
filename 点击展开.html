@@ -1,0 +1,153 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>点击展开隐藏重新显示</title>
+  <style>
+    p{
+      width:300px;
+      text-indent:2em;
+      background-color: red;
+      line-height:150%;
+      margin:5px 0 0;
+    }
+    p a{
+      color:#FDCD3D;
+    }
+  </style>
+</head>
+<body>
+  <p>那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳那个好地方都快回家喝咖啡的好地方客服都好看林佳</p>
+ <script src="jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $("p").each(function(){
+        var maxwidth=60;//设置最多显示的字数
+        var text=$(this).text();
+        if($(this).text().length>maxwidth){
+          $(this).text($(this).text().substring(0,maxwidth));
+          $(this).html($(this).html()+"..."+"<a href='###'> 点击展开</a>");//如果字数超过最大字数，超出部分用...代替，并且在后面加上点击展开的链接；
+        };
+        $(this).find("a").click(function(){
+          // $(this).parent().slideUp(1);
+          $(this).parent().slideDown(2000);//点击“点击展开”，展开全文
+          $(this).parent().text(text)
+        })
+      })
+    })
+  </script>
+</body>
+</html> -->
+<!-- <html>
+<title>点击文字显示全部点击替换</title>
+<style type="text/css">
+.detail{width:400px;line-height:20px;padding:10px;border-bottom:1px dashed #ccc;font-size:12px;}
+.detail .all{display:none;}
+.detail .more{text-decoration:none;color:#0066CC;cursor:pointer;}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+$(function(){
+ //对于每一条评论：
+ $('.detail').each(function(){
+  //记录评论内容
+  var html=$(this).html();
+  //把评论div的内容替换成三个部分：简短评论内容、完整评论内容和查看内容的超链接
+  $(this).html('<span class="short">'+html.substring(0,105)+'</span><span class="all">'+html.substring(105,html.length)+'</span>');
+ });
+ //对于每一个评论中查看内容的超链接：
+ $('.detail').each(function(){
+  //如果点击该链接则：
+  $(this).click(function(){
+   //把不需要显示的内容隐藏，需要显示的内容展开。
+   $(this).children('.all').slideDown(1000);
+  });
+ });
+});
+</script> 
+</head>
+<body>
+<div class="detail">
+ 做一个类似豆瓣评论可显示简短23评论，点击后可显示评论的全部内容，由于评论条目众多，所以JS只能调用一次显然不能满足需求，想使用纯DIV+CSS实现或者可重复利用的JS+DIV来实现，豆瓣我看它每段评论都自动生成一个ID调用
+ 做一个类似豆瓣评论可显示简短评论，点击后可显示评论的全部内容，由于评论条目众多，所以JS只能调用一次显然不能满足需求，想使用纯DIV+CSS实现或者可重复利用的JS+DIV来实现，豆瓣我看它每段评论都自动生成一个ID调用
+</div>
+<div class="detail">
+ 做一个类似豆瓣评论可显示简123短评论，点击后可显示评论的全部内容，由于评论条目众多，所以JS只能调用一次显然不能满足需求，想使用纯DIV+CSS实现或者可重复利用的JS+DIV来实现，豆瓣我看它每段评论都自动生成一个ID调用
+</div>
+<div class="detail">
+ 做一个类似豆瓣评论可显示简短123113评论，点击后可显示评论的全部内容，由于评论条目众多，所以JS只能调用一次显然不能满足需求，想使用纯DIV+CSS实现或者可重复利用的JS+DIV来实现，豆瓣我看它每段评论都自动生成一个ID调用
+ 做一个类似豆瓣评论可显示简短评论，点击后可显示评论的全部内容，由于评论条目众多，所以JS只能调用一次显然不能满足需求，想使用纯DIV+CSS实现或者可重复利用的JS+DIV来实现，豆瓣我看它每段评论都自动生成一个ID调用论都自动生成一个ID调用
+</div>
+<div class="detail">
+ 做一个类似豆瓣评论可显示简短12313123评论，点击后可显示评论的全部内容，由于评论条目众多，所以JS只能调用一次显然不能满足需求，想使用纯DIV+CSS实现或者可重复利用的JS+DIV来实现，豆瓣我看它
+ 做一个类似豆瓣评论可显示简2短评论，点击后可显示评论的全部内容，由于评论条目众多，所以JS只能调用一次显然不能满足需求，想使用纯DIV+CSS实现或者可重复利用的JS+DIV来实现，豆瓣我看它每段评论都
+</div>
+</body>
+</html>  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>点击展开最好的办法</title>
+  <style>
+    .outer{
+    overflow:hidden;
+    width:300px;
+    max-height:100px;
+    font-size:12px;
+    line-height:20px;
+    background:#ccc;
+    position:relative;
+  }
+  a{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  </style>
+</head>
+<body>
+<div class="outer">
+    <span class="inner">
+    我的看法还是简单的外部一个div为.outer设置
+    overflow:hidden:
+    固定好line-height和height
+    内部设置一个div为.inner
+    获取.inner的高度
+    点击按钮时让外部div高度animate到内部div的高度就好了
+    我的看法还是简单的外部一个div为.outer设置
+    overflow:hidden:
+    固定好line-height和height
+    内部设置一个div为.inner
+    获取.inner的高度
+    点击按钮时让外部div高度animate到内部div的高度就好了
+    我的看法还是简单的外部一个div为.outer设置
+    overflow:hidden:
+    固定好line-height和height
+    内部设置一个div为.inner
+    获取.inner的高度
+    点击按钮时让外部div高度animate到内部div的高度就好了
+    </span>
+    <a href='#'>...</a>
+</div>
+ <script src="jquery.min.js"></script>
+<script>
+  var inner = $(".inner");
+var outer = $(".outer");
+console.log("inner-height"+inner.css("height"));
+if (parseInt(inner.css('height')) <= 100) {
+  outer.find('a').hide();
+}
+outer.on("click",function(){
+  if ((outer.css('height') == inner.css('height')) && (parseInt(inner.css('height')) > 100)) {
+    outer.animate({'max-height':'100px'},500);
+    outer.find('a').show();
+  }else{
+    outer.animate({'max-height':inner.css("height")},500);
+    outer.find('a').hide();
+  }
+})
+</script>
+</body>
+</html>

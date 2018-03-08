@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>表格动态td点击事件</title>
+  <style>
+      td{
+        border:1px solid black;
+        width: 150px;
+      }
+  </style>
+</head>
+<body>
+  <table id="tb">
+    <tr>
+        <td class="add">向下增加一行</td><td>b</td><td class="delete">delete</td>
+    </tr>
+    <tr>
+        <td class="add">aa</td><td>bb</td><td class="delete">delete</td>
+    </tr>
+</table>
+ <script src="jquery.min.js"></script>
+<script>
+    // tdClick()
+    var i = 0;
+        
+    const data = [
+        {'first':'lin','last':'jia'},
+        {'first':'liu','last':'xin'}
+    ];
+    const tmpTr = addTrs =>`
+    ${addTrs.map(addTr =>
+        `
+        <tr>
+            <td class="add">${addTr.first}</td>
+            <td>${addTr.last}</td>
+            <td class="delete">delete</td>
+        </tr>
+        `
+    ).join('')}
+    `.trim();
+    $('#tb').append(tmpTr(data));
+    //以jquery为例实现点击某行获得某个td的数据
+    /*$( "#tb .delete").bind('click',deleteTr);
+    $( "#tb .add").bind('click',addTr);
+
+    function deleteTr(){
+        var td = $(this).parent().find("td");//this指向了当前点击的行，通过find我们获得了该行所有的td对象
+        //题中说到某个td，为了演示所以我们假设是要获得第3个td的数据
+        var data = td.eq(1).html();//通过eq可以得到具体的某个td对象，从而得到相应的数据
+        (i < 0) ? 0 : i--;
+        console.log(data,i,$(this).parent()[0].rowIndex);
+        $('#tb')[0].deleteRow($(this).parent()[0].rowIndex);
+    }
+    function addTr(){
+         var td = $(this).parent().find("td");//this指向了当前点击的行，通过find我们获得了该行所有的td对象
+        //题中说到某个td，为了演示所以我们假设是要获得第3个td的数据
+        var data = td.eq(1).html();//通过eq可以得到具体的某个td对象，从而得到相应的数据
+        i++;
+        console.log(data,i,$(this).parent()[0].rowIndex);
+        var tr = `<tr style="background-color:yellow;">
+        <td class="add">aa</td><td>${i}</td><td class="delete">delete</td>
+        </tr>`;
+        $(this).parent().after(tr);
+        console.log($(this).parent()[0].rowIndex+2)
+        $('#tb :nth-child(' + ( $(this).parent()[0].rowIndex + 2) + ')').find('.add').bind('click',addTr);
+        $('#tb :nth-child(' + ( $(this).parent()[0].rowIndex + 2) + ')').find('.delete').bind('click',deleteTr);
+    }*/
+    // 委托给父节点
+    $('#tb').delegate('.add','click',function(){
+        var tr = $(this).parent().clone(true);
+        tr.css('background-color','yellow');
+        var i = 0;
+        tr.children('td').each(function(){
+            $(this).html(i++);
+        })
+        tr.insertAfter(this.parentNode);
+    })
+    $('#tb').delegate('.delete','click',function(){
+        $('#tb')[0].deleteRow($(this).parent()[0].rowIndex);
+    })
+    /*$( "#tb .delete").bind('click',deleteTr);
+    $( "#tb .add").bind('click',addTr);
+    function deleteTr(){
+        $('#tb')[0].deleteRow($(this).parent()[0].rowIndex);
+    }
+    function addTr(){
+        var addTd = new AddTd();
+        var deleteTd = new DeleteTd();
+        var tr = `<tr style="background-color:yellow;">
+            ${addTd.td}
+            <td>bb</td>
+            ${deleteTd.td}
+        </tr>`;
+        $(this).parent().after(tr);
+    }
+    function AddTd(){
+       this.td = `<td class="add">aa</td>`;
+       this.click = addTr;
+    }
+    function DeleteTd(){
+       this.td = `<td class="delelte">cc</td>`;
+       this.click = deleteTr;
+    }*/
+</script>
+</body>
+</html>
