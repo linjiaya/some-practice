@@ -1,0 +1,90 @@
+*{
+  margin:0;
+  padding: 0;
+}
+header{
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  background-color: #D8F1F9;
+}
+/*－－－－－－－－－－－－－－－－－－－－－－－下方内容－－－－－－－－－－－－－－－－－－－－*/
+.container{
+  height: auto;
+  min-height: 650px;
+  width: 100%;
+  display: block;
+  padding:20px;
+  padding-left: 220px;
+  background-color: white;
+  position: relative;
+}
+/*－－－－－－－－－－－－－－－侧边栏－－－－－－－－－－－－－－－－*/
+.menu{
+  width: 200px;
+  height: 100%;
+  display: block;
+  float: left;
+  background-color: #69AACD;
+  position: absolute;
+  top: 0;left: 0;
+}
+.menu h4{
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 5px 0;
+}
+.menu ul,li{
+  list-style: none;
+}
+.menu li a{
+  color:#eee; 
+  display: block;
+  font-size: 1.5rem;
+}
+.menu li a:hover{
+  color: white;
+}
+.menu li a.active{
+  color: #115EAA;
+  border-left: 10px solid #0069A3;
+}
+/*分级侧边栏样式*/
+.bgList > li{
+  background-color: #0069A3;
+}
+.bgList > li a{
+  padding: 5px 10px 5px 15px;
+  border-bottom: 1px solid #396E9F;
+}
+.bgList > li a .glyphicon{
+  float: right;
+}
+
+.mdList > li{
+  background-color: #0081C8;
+}
+.mdList > li a{
+  padding:5px 12px 5px 25px;
+  border-bottom: 1px solid #1A94C5;
+}
+.mdList > li a .glyphicon{
+  float: right;
+  font-size: .3rem;
+}
+
+.smList > li{
+  background-color: #69AACD;
+}
+.smList > li a{
+  border-bottom: 1px solid #4B93B9;
+  padding:5px 10px 5px 35px;
+}
+
+/*－－－－－－－－－－右边内容－－－－－－－－－－－－－－－*/
+.contentDiv{
+  display: block;
+  padding: 20px;
+  min-height: 20px;
+  margin-bottom: 20px;
+}
